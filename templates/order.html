@@ -1,0 +1,26 @@
+<html>
+    <body>
+        <h1>Order Details</h1>
+        Order NO. : {{oid}} <br>
+        Date: {{date}} <br>
+        Total Cost: {{tcost}}
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Seller</th>
+                <th>Quantity</th>
+                <th>Cost</th>
+            </tr>
+            
+            {% for g in gname%}
+            <tr>
+                <td>{{g}}</td>
+                <td>{{sname[loop.index0]}}</td>
+                <td>{{qty[loop.index0]}}</td>
+                <td>{{cost[loop.index0]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="/">Back to Home Page</a>
+    </body>
+</html>

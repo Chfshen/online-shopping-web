@@ -1,0 +1,27 @@
+<html>
+    <body>
+		<h1> Create Account </h1>
+		<form action="register" method="POST">
+			<input type="radio" name="account_type" id="account_customer" value="customer" required>
+			<label for="account_customer">Customer</label>
+			<input type="radio" name="account_type" id="account_retailer" value="retailer">
+			<label for="account_retailer">Retailer</label>
+			<br>
+			<label for="username">Username</label>
+			<input type="text" name="username" id="username" maxlength = "20" required>
+			<br>
+			<label for="password">Password</label>
+			<input type="text" name="password" id="password" maxlength = "20" required>
+			{% if msg %}
+            <div>{{ msg }}</div>
+            {% endif %}
+            <br>
+            <label for="fullname">Full Name</label>
+			<input type="text" name="fullname" id="fullname" maxlength = "40" required>
+            <br>
+			<input type="submit" value="Sign in">
+		</form>
+        <br>
+        <a href="/">Back to Home Page</a>
+	</body>
+</html>

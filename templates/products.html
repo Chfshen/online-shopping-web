@@ -1,0 +1,41 @@
+<html>
+    <style>
+        body{ 
+          font-size: 11pt;
+          font-family: arial;
+        }
+      </style>
+    <body>
+        <h1>Products</h1>
+        <p><a href="/c">My Cart</a></p>
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Category</th>
+                <th>Seller</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th></th>
+            </tr>
+            
+            {% for g in gnames%}
+            <tr>
+                <form action="addcart" method="POST">
+                <td>{{g}}</td>
+                <td>{{category[loop.index0]}}</td>
+                <td>{{snames[loop.index0]}}</td>
+                <td>{{price[loop.index0]}}</td>
+                <td>
+                    <input type="number" name="qty" min="1" required>
+                    <input type="hidden" name="gid" value="{{gid[loop.index0]}}">
+                    <input type="hidden" name="sid" value="{{sid[loop.index0]}}">
+                </td>
+                <td><input type="submit" value="Add to cart" onclick="alert('Your choice has been added to cart')"></td>
+                </form>
+            </tr>
+            {% endfor %}
+        </table>
+        <br><br>
+        <a href="/">Back to Home Page</a>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+  <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+
+<body>
+  {% if not session["loggedin"] %}
+  <a href="login">login</a>
+  <a href="register">register</a>
+  {% endif %}
+  {% if session["loggedin"] %}
+  <a href="logout">log out</a>
+  {% endif %}
+  <h1>E-commerce platform demo</h1>
+  <h2>Welcome!
+    {% if session["loggedin"] %}
+      {{ session.username }}
+    {% endif %}
+  </h2>
+  {% if session["loggedin"] %}
+    <p><a href="u">My Profile</a></p>
+    {% if session["type"]=="customer" %}
+      <p><a href="getdc" onclick="alert('You have got a discount coupon!')">Click here to get a 10% discount coupon</a></p>
+    {% endif %}
+  {% endif %}
+  <p><a href="c">My Cart</a></p>
+  <p><a href="p">Show all products</a></p>
+ 
+
+</body>
+
+
+</html>

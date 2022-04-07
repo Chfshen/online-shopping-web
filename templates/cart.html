@@ -1,0 +1,56 @@
+<html>
+    <body>
+        <h1>My Cart</h1>
+        {%if not gname%}
+        You have not added anything in cart!
+        {%endif%}
+        {%if gname%}
+            <table>
+                <tr>
+                    <th>Product</th>
+                    <th>Seller</th>
+                    <th>Price per item</th>
+                    <th>Total Price</th>
+                    <th>Quantity</th>
+                    <th></th>
+                </tr>
+                
+                {% for g in gname%}
+                <tr>
+                    <form action="updatecart" method="POST">
+                    <td>{{g}}</td>
+                    <td>{{sname[loop.index0]}}</td>
+                    <td>{{price[loop.index0]}}</td>
+                    <td>{{tprice[loop.index0]}}</td>
+                    <td>
+                        <input type="number" name="qty" min="0" value="{{qty[loop.index0]}}" required>
+                        <input type="hidden" name="gid" value="{{gid[loop.index0]}}">
+                        <input type="hidden" name="sid" value="{{sid[loop.index0]}}">
+                    </td>
+                    <td><input type="submit" value="Update"></td>
+                    </form>
+                </tr>
+                {% endfor %}
+            </table>
+            {%if dcid%}
+                <form action="applydc" method="POST" id="applydc">
+                    <select name="dcid" id="dcid" form="applydc" required>
+                        {% for i in dcid%}
+                        <option value="{{i}}">-{{dcrate[loop.index0]}}%</option>
+                        {% endfor %}
+                    </select>
+                    <input type="submit" value="Apply Discount">
+                </form>
+            {%endif%}
+            <h3>Total Cost: {{sumCost}}</h3>
+            <h3>Final Cost: {{finalCost}}</h3>
+            <form action="mkorder" method="POST">
+                <input type="submit" value="Confirm Order">
+            </form>
+        {%endif%}
+        <br>
+        <a href="/p">Continue Shopping</a>
+        <br>
+        <a href="/">Back to Home Page</a>
+    </body>
+</html>

@@ -1,0 +1,1 @@
+A simple online shopping web application that supports editting products and personal information, making orders, shopping cart and discount coupon functions.

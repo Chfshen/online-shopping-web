@@ -1,0 +1,22 @@
+<html>
+
+	<body>
+		<h1> Login </h1>
+		<form action="login" method="POST">
+			<input type="radio" name="account_type" id="account_customer" value="customer" required>
+			<label for="account_customer">Customer</label>
+			<input type="radio" name="account_type" id="account_retailer" value="retailer">
+			<label for="account_retailer">Retailer</label>
+			<br>
+			<label for="username">Username</label>
+			<input type="text" name="username" id="username" required>
+			<br>
+			<label for="password">Password</label>
+			<input type="text" name="password" id="password" required>
+			<div>{{ msg }}</div>
+			<input type="submit" value="Login">
+		</form>
+		<a href="/">Back to Home Page</a>
+	</body>
+
+</html>

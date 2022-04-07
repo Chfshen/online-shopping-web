@@ -1,0 +1,41 @@
+<html>
+    <body>
+        <h1>{{ session["username"] }}</h1>
+        <h2>Your Address</h2>
+        {% for a in addr%}
+            <li>{{a}}</li>
+        {% endfor %}
+        <a href="/addr">add new address</a>
+        <br>
+        <h2>Your Telephone Number</h2>
+        {% for t in tel%}
+            <li>{{t}}</li>
+        {% endfor %}
+        <a href="/tel">add new telephone number</a>
+        <br>
+        <h2>Your orders</h2>
+        {% if not dates%}
+            You do not have any order!
+        {% endif %}
+        {% if dates%}
+            <table>
+                <tr>
+                    <th>NO.</th>
+                    <th>Date</th>
+                    <th>Cost</th>
+                    <th></th>
+                </tr>
+                {% for d in dates%}
+                <tr>
+                    <td>{{oids[loop.index0]}}</td>
+                    <td>{{d}}</td>
+                    <td>{{costs[loop.index0]}}</td>
+                    <td><a href='/o/{{oids[loop.index0]}}'>See Detail</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+        <br>
+        <a href="/">Back to Home Page</a>
+    </body>
+</html>

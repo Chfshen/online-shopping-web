@@ -1,0 +1,16 @@
+<html>
+    <body>
+        <h1>Add New Product</h1>
+        <form action="addproduct" id="addproduct" method="POST">
+            <label for="gname">Name</label>
+            <input type="text" maxlength="20" name="gname" id="gname" required>
+            <select name="cid" id="cid" form="addproduct" required>
+                {% for c in cname%}
+                <option value="{{cid[loop.index0]}}">{{c}}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Confirm">
+        </form>
+        <a href="/">Back to Home Page</a>
+    </body>
+</html>
